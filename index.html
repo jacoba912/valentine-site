@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Be My Valentine?</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Floating hearts container -->
+    <div id="fxLayer" aria-hidden="true"></div>
+
+    <main class="page">
+      <section class="card" aria-live="polite">
+        <!-- Music -->
+        <div class="musicBar">
+          <button id="musicBtn" class="musicBtn" type="button">
+            ▶ Play music
+          </button>
+          <span class="musicHint">(Tap to enable audio)</span>
+        </div>
+
+        <audio id="bgMusic" loop preload="auto">
+          <!-- Put your audio file in the same folder as index.html -->
+          <source src="the-only-exception.mp3" type="audio/mpeg" />
+        </audio>
+
+        <!-- Top icon -->
+        <div class="icon" aria-hidden="true">
+          <div class="bear">🐻</div>
+          <div class="heart">💗</div>
+        </div>
+
+        <!-- ASK view -->
+        <div id="askView">
+          <h1 class="question" id="questionText">will you be my valentine?</h1>
+
+          <div class="buttonsArea" id="buttonsArea">
+            <button id="yesBtn" class="btn btn-yes" type="button">Yes</button>
+            <button id="noBtn" class="btn btn-no" type="button">No</button>
+          </div>
+
+          <p class="hint">tip: try pressing “No” 😈</p>
+        </div>
+
+        <!-- SCAVENGER VIEW -->
+        <div id="scavengerView" class="hidden">
+          <h2 class="clueTitle" id="clueTitle">Clue 1</h2>
+          <p id="clueText" class="clueText"></p>
+
+          <div id="passwordArea" class="passwordArea">
+            <input
+              id="passwordInput"
+              type="text"
+              placeholder="Enter the password…"
+              autocomplete="off"
+            />
+            <button id="submitPasswordBtn" class="btn btn-yes" type="button">
+              Unlock
+            </button>
+
+            <p id="errorText" class="errorText hidden">
+              Hmm… that doesn’t seem quite right 💭
+            </p>
+          </div>
+
+          <button id="resetBtn2" class="btn btn-reset" type="button">
+            Start over
+          </button>
+        </div>
+
+        <!-- FINAL VIEW -->
+        <div id="finalView" class="hidden">
+          <h2 class="yayTitle">Final clue unlocked 💘</h2>
+          <p class="yayText">
+            Go claim your gift… and then come back for a kiss 😉
+          </p>
+
+          <button id="resetBtn" class="btn btn-reset" type="button">
+            Do it again
+          </button>
+        </div>
+
+        <!-- Confetti canvas -->
+        <canvas id="confettiCanvas" class="confettiCanvas" aria-hidden="true"></canvas>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

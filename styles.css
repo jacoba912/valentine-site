@@ -1,0 +1,280 @@
+:root {
+    --bg1: #ffd6e8;
+    --bg2: #f7c6ff;
+  
+    --card: rgba(255, 255, 255, 0.9);
+    --text: #1f1f1f;
+  
+    --yes: #e91e63;
+    --yes-hover: #d81b60;
+  
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    --radius: 22px;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial,
+      "Apple Color Emoji", "Segoe UI Emoji";
+    color: var(--text);
+  }
+  
+  .page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: radial-gradient(circle at 20% 20%, #ffffff55, transparent 45%),
+      radial-gradient(circle at 80% 30%, #ffffff55, transparent 45%),
+      linear-gradient(160deg, var(--bg1), var(--bg2));
+  }
+  
+  .card {
+    width: min(560px, 92vw);
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px 22px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* subtle sparkle dots */
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
+    background-image: radial-gradient(#ffffffaa 1px, transparent 1px);
+    background-size: 18px 18px;
+    opacity: 0.25;
+    pointer-events: none;
+    transform: rotate(8deg);
+  }
+  
+  /* MUSIC BAR */
+  .musicBar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .musicBtn {
+    border: none;
+    cursor: pointer;
+    border-radius: 999px;
+    padding: 10px 14px;
+    font-weight: 800;
+    background: #111;
+    color: white;
+    transition: transform 140ms ease;
+  }
+  
+  .musicBtn:hover {
+    transform: translateY(-1px);
+  }
+  
+  .musicHint {
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  
+  .icon {
+    position: relative;
+    display: inline-grid;
+    place-items: center;
+    margin: 6px auto 10px;
+  }
+  
+  .bear {
+    font-size: 56px;
+    line-height: 1;
+  }
+  
+  .heart {
+    position: absolute;
+    right: -10px;
+    top: 6px;
+    font-size: 22px;
+    transform: rotate(12deg);
+  }
+  
+  .question {
+    position: relative;
+    margin: 10px 0 18px;
+    font-size: clamp(22px, 3.2vw, 34px);
+    letter-spacing: -0.5px;
+    text-transform: lowercase;
+  }
+  
+  .hint {
+    position: relative;
+    margin: 14px 0 0;
+    opacity: 0.7;
+    font-size: 14px;
+  }
+  
+  .buttonsArea {
+    position: relative;
+    margin: 0 auto;
+    height: 110px;
+    width: min(420px, 86vw);
+    display: grid;
+    place-items: center;
+  }
+  
+  .btn {
+    border: none;
+    cursor: pointer;
+    font-weight: 800;
+    border-radius: 999px;
+    padding: 12px 18px;
+    transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .btn:focus {
+    outline: 3px solid #00000020;
+    outline-offset: 3px;
+  }
+  
+  .btn-yes {
+    background: var(--yes);
+    color: white;
+    padding: 14px 26px;
+    font-size: 18px;
+    box-shadow: 0 10px 24px rgba(233, 30, 99, 0.25);
+  }
+  
+  .btn-yes:hover {
+    background: var(--yes-hover);
+    transform: translateY(-1px);
+  }
+  
+  .btn-no {
+    background: transparent;
+    color: #222;
+    font-size: 12px;
+    padding: 8px 10px;
+    opacity: 0.75;
+  
+    position: absolute;
+    left: 68%;
+    top: 56%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .btn-reset {
+    background: #111;
+    color: white;
+    font-size: 14px;
+    padding: 12px 18px;
+  }
+  .btn-reset:hover {
+    transform: translateY(-1px);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Scavenger UI */
+  .clueTitle {
+    font-size: 28px;
+    margin: 10px 0 12px;
+  }
+  
+  .clueText {
+    font-size: 18px;
+    line-height: 1.45;
+    margin: 0 0 18px;
+  }
+  
+  .passwordArea {
+    display: grid;
+    gap: 12px;
+    max-width: 340px;
+    margin: 0 auto 14px;
+  }
+  
+  .passwordArea input {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .errorText {
+    color: #c62828;
+    font-size: 14px;
+    margin: 0;
+  }
+  .errorText.hidden {
+    display: none;
+  }
+  
+  /* Confetti canvas sits on top of the card */
+  .confettiCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  /* Floating hearts (full screen) */
+  #fxLayer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  
+  .floatingHeart {
+    position: absolute;
+    font-size: 22px;
+    will-change: transform, opacity;
+    animation: floatUp 1.4s ease-out forwards;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.15));
+  }
+  
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) scale(0.9);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-160px) scale(1.2);
+      opacity: 0;
+    }
+  }
+  
+  @media (max-width: 420px) {
+    .btn-yes {
+      font-size: 20px;
+      padding: 16px 28px;
+    }
+  
+    .question {
+      font-size: 24px;
+    }
+  
+    .clueText {
+      font-size: 17px;
+    }
+  }
+  
