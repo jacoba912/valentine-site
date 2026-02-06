@@ -31,7 +31,7 @@ const CONFIG = {
     {
       clue:
         "A mountain rises here without warning. Sometimes it stands proud… sometimes it collapses in a soft avalanche — but it always returns.",
-      password: "Hey sexy",
+      password: "You're looking sexy",
     },
     {
       clue:
@@ -109,8 +109,11 @@ const CONFIG = {
     return String(s || "")
       .trim()
       .toLowerCase()
+      .replace(/[’‘]/g, "'")
+      .replace(/[^a-z0-9\s']/g, "")
       .replace(/\s+/g, " ");
   }
+  
   
   function moveNoButton() {
     const areaRect = buttonsArea.getBoundingClientRect();
