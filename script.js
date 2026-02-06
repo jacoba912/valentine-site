@@ -31,7 +31,7 @@ const CONFIG = {
     {
       clue:
         "A mountain rises here without warning. Sometimes it stands proud… sometimes it collapses in a soft avalanche — but it always returns.",
-      password: "You're looking sexy",
+      password: "Hey sexy",
     },
     {
       clue:
